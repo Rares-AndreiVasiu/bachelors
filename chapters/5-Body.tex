@@ -1,0 +1,47 @@
+\chapter{Body}
+\thispagestyle{pagestyle}
+
+\section{Task life cycle}
+\begin{figure}[H]
+	\includegraphics{images/state_transition.png}
+	\caption{Task state machine [1]}
+	\label{fig:myfig}
+\end{figure}
+
+
+\section{Scheduling algorithm}
+\cite{mastering} The scheduling algorithm is a software routine that determines which tasks in the ready state will transition to the running state.
+
+\section{Cooperative Scheduling}
+
+Cooperative scheduling depicts a planning algorithm where the FreeRTOS scheduler only transitions a \textit{Ready} state task into the Running state when the currently executing task either enters the \textit{Blocked} state, or the \textit{Running} state task yields overtly. Due to the fact that the cooperative scheduler does not inevitably disrupt tasks at specific intervals, the kernel never preempts tasks at tick interrupts. Moreover, a context switch eventuates if and only if a task calls \textit{taskYIELD()}, or enters \textit{Blocked} states, or an application defined interrupt explicitly acts as a context switch. If there exists a higher-priority task in \textit{Ready} state, while a lower-priority tasks is executing, the context switcher is not going to perform a switch immediately. [1] \newline
+Cooperative scheduling is enabled by setting \textbf{configUSE\_PREEMPTION 0} and functions with any time slicing value for the configuration constant \textbf{configUSE\_TIME\_SLICING}.
+
+\section{Preemptive scheduling}
+In FreeRTOS, preemptive scheduling is a scheduling algorithm in which the kernel always ensures that the highest priority task being in the \textit{Ready} state is executing. Under this particular model, the scheduler instantly preempts a lower-priority task if a higher-priority task is in \textit{Ready} state. The action of preempting an executing task may take place at any time, not only during RTOS tick interruptions. [1]
+
+
+\section{Cooperative vs Preemptive Scheduling}
+\begin{table}[h]
+	\caption{Scheduling algorithms comparison}
+	\label{table:table1}
+	\begin{tabular}{ |p{5cm}|p{4cm}|p{4cm}| }
+		\hline
+		Feature & Cooperative & Preemptive \\
+		\hline
+		configUSE\_PREEMPTION &  Set to \textbf{0} & Set to \textbf{1}\\
+		\hline
+		Starvation risk & High & Low \\
+		\hline
+		Time slicing &  Not supported  & Supported  \\
+		\hline
+		Context Switch Triggers & calling taskYIELD() or entering \textit{Blocked} state& I/O events and tick interrupts and yields\\
+		\hline
+		Task Preemption & Tasks are never preempted by the kernel since the Running task has exclusive control until it gives it up & Tasks can be voluntarily removed from the state of execution any time by the scheduler \\
+		\hline
+		Resource management & Simplified, since the application writer can ensure a task does not yield until a resource is in a consistent state  & More complex, because tasks can be preempted when a shared resource is in inconsistent state, leading to data corruption \\
+		\hline
+		Responsiveness & Lower; high-priority tasks must wait for the current task to block or call taskYIELD() & High, the planner starts a high priority task immediately after becoming ready \\ 
+		\hline
+	\end{tabular}
+\end{table}

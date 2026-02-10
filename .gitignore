@@ -1,0 +1,13 @@
+[logs]
+*.log
+*.loc
+*.lof
+*.gz
+*.lot
+*.out
+*.aux
+*.xml
+*.toc
+*.pdf
+*.blg
+*.bbl
