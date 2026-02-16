@@ -1,29 +1,36 @@
 \chapter{Body}
 \thispagestyle{pagestyle}
 
+\section{Real-time systems}
+The main goal for real-time systems is to provide predictable and responsive behaviour, while  \enquote{maintaining reliability as a priority over sheer performance \cite{Hagens2023}}. Another important observation regarding real-time systems is about the correctness of the system which \enquote{ depends not only on the logical result of the computation, but also on the time at which the results are produced \cite{springKernel}}.
+
 \section{Scheduling algorithm}
-\label{cite:mastering}
-\cite{mastering}  Richard Barry and The FreeRTOS Team mentions in the manual a concise description for what a scheduling algorithm depicts, \enquote{The scheduling algorithm is the software routine that decides which Ready state task to transition into the Running state.}
+
+  Richard Barry and The FreeRTOS Team mentions in the manual a concise description for what a scheduling algorithm depicts, \enquote{The scheduling algorithm is the software routine that decides which Ready state task to transition into the Running state \cite{mastering}}.
 
 \section{Task life cycle}
 \begin{figure}[H]
 	\includegraphics[width=0.4\textwidth]{images/state_transition.png}
-	\caption{Task state machine [1]}
+	\caption{Task state machine \cite{mastering}}
 	\label{fig:myfig}
 \end{figure}
+
+In the FreeRTOS kernel architecture the task concept is defined as an independent execution thread. In other words,
+a task is a a program with a small footprint that operates in an infinite loop. As a human life, the life cycle of a task
+includes instantiation, transitions of the state and inevitable termination. \cite{mastering}
 
 
 \section{Cooperative Scheduling}
 
-Cooperative scheduling depicts a planning algorithm where the FreeRTOS scheduler only transitions a \textit{Ready} state task into the Running state when the currently executing task either enters the \textit{Blocked} state, or the \textit{Running} state task yields overtly. Due to the fact that the cooperative scheduler does not inevitably disrupt tasks at specific intervals, the kernel never preempts tasks at tick interrupts. Moreover, a context switch eventuates if and only if a task calls \textit{taskYIELD()}, or enters \textit{Blocked} states, or an application defined interrupt explicitly acts as a context switch. If there exists a higher-priority task in \textit{Ready} state, while a lower-priority tasks is executing, the context switcher is not going to perform a switch immediately. [1] \newline
+Cooperative scheduling depicts a planning algorithm where the FreeRTOS scheduler only transitions a \textit{Ready} state task into the Running state when the currently executing task either enters the \textit{Blocked} state, or the \textit{Running} state task yields overtly. Due to the fact that the cooperative scheduler does not inevitably disrupt tasks at specific intervals, the kernel never preempts tasks at tick interrupts. Moreover, a context switch eventuates if and only if a task calls \textit{taskYIELD()}, or enters \textit{Blocked} states, or an application defined interrupt explicitly acts as a context switch. If there exists a higher-priority task in \textit{Ready} state, while a lower-priority tasks is executing, the context switcher is not going to perform a switch immediately. \cite{mastering} \newline
 Cooperative scheduling is enabled by setting \textbf{configUSE\_PREEMPTION 0} and functions with any time slicing value for the configuration constant \textbf{configUSE\_TIME\_SLICING}.
 
 \section{Preemptive scheduling}
-In FreeRTOS, preemptive scheduling is a scheduling algorithm in which the kernel always ensures that the highest priority task being in the \textit{Ready} state is executing. Under this particular model, the scheduler instantly preempts a lower-priority task if a higher-priority task is in \textit{Ready} state. The action of preempting an executing task may take place at any time, not only during RTOS tick interruptions. [1]
+In FreeRTOS, preemptive scheduling is a scheduling algorithm in which the kernel always ensures that the highest priority task being in the \textit{Ready} state is executing. Under this particular model, the scheduler instantly preempts a lower-priority task if a higher-priority task is in \textit{Ready} state. The action of preempting an executing task may take place at any time, not only during RTOS tick interruptions. \cite{mastering}
 
 
 \section{Cooperative vs Preemptive Scheduling}
-\begin{table}[h]
+\begin{table}[H]
 	\caption{Scheduling algorithms comparison}
 	\label{table:table1}
 	\begin{tabular}{ |p{5cm}|p{4cm}|p{4cm}| }
