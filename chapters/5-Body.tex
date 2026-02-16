@@ -5,13 +5,20 @@
 The main goal for real-time systems is to provide predictable and responsive behaviour, while  \enquote{maintaining reliability as a priority over sheer performance \cite{Hagens2023}}. Another important observation regarding real-time systems is about the correctness of the system which \enquote{ depends not only on the logical result of the computation, but also on the time at which the results are produced \cite{springKernel}}. Thus, real-time systems are classified by deadline, and real-time tasks can be separated into three main categories:
 \begin{enumerate}[]
 	\item \textbf{Soft:} the results generated after its deadline are still useful to the system, but lead to performance
-	degradation
+	degradation. Typical application ares are communication systems such has voice over IP or \enquote{comfort electronics \cite{ecker2009hardware}} such as body electronics in cars.
 	
-	\item \textbf{Firm:} production of results after its end time has no use for the system, but does not inflict damage.
+	\item \textbf{Firm:} production of results after its end time has no use for the system, but does not inflict damage. Weather forecast or stock exchange order decision are typical application areas. 
 	
-	\item \textbf{Hard:} when results are obtained after the specified time limit, the control unit faces a doomsday scenario.
+	\item \textbf{Hard:} when results are obtained after the specified time limit, the control unit faces a doomsday scenario. \cite{Hagens2023} Common applications are aerospace industry, defense and military, healthcare devices and many more.
 
 \end{enumerate}
+
+A great analogy of how a real-time system functions in regards to its environment: \enquote{“Real-time” means that the IT system is no longer controlling its own time domain. Now it is the progress of time of the environment which dictates
+how time has to progress inside the system. } \cite{ecker2009hardware}
+
+\section{Real-time operating systems}
+Basic support for scheduling, handling resources, synchronization, communication, precise timing and input/output is offered by real-time operating systems (RTOSs). Moreover, real-time operating systems prioritize accuracy, certainty and incorporate functions that support time constraints. \cite{stankovic2004realrtos} 
+
 
 \section{Scheduling algorithm}
 
