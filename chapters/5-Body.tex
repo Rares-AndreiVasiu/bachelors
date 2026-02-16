@@ -1,16 +1,17 @@
 \chapter{Body}
 \thispagestyle{pagestyle}
 
+\section{Scheduling algorithm}
+\label{cite:mastering}
+\cite{mastering}  Richard Barry and The FreeRTOS Team mentions in the manual a concise description for what a scheduling algorithm depicts, \enquote{The scheduling algorithm is the software routine that decides which Ready state task to transition into the Running state.}
+
 \section{Task life cycle}
 \begin{figure}[H]
-	\includegraphics{images/state_transition.png}
+	\includegraphics[width=0.4\textwidth]{images/state_transition.png}
 	\caption{Task state machine [1]}
 	\label{fig:myfig}
 \end{figure}
 
-
-\section{Scheduling algorithm}
-\cite{mastering} The scheduling algorithm is a software routine that determines which tasks in the ready state will transition to the running state.
 
 \section{Cooperative Scheduling}
 
@@ -45,3 +46,8 @@ In FreeRTOS, preemptive scheduling is a scheduling algorithm in which the kernel
 		\hline
 	\end{tabular}
 \end{table}
+
+\section{Kernel version migration}
+The initial project ran on version 10.4.4, but we have migrated to current latest version being 11.1.0. The impactful change
+in project structure is that the latest contains a new file \textbf{FreeRTOS-Kernel/portable/GCC/ARM\_CM0/portasm.c} which needs to be introduced in the CMake's sight as an additional library. This file handles MPU configuration, which is not
+supported for the Raspberry Pi Pico.
