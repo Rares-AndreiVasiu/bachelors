@@ -2,7 +2,16 @@
 \thispagestyle{pagestyle}
 
 \section{Real-time systems}
-The main goal for real-time systems is to provide predictable and responsive behaviour, while  \enquote{maintaining reliability as a priority over sheer performance \cite{Hagens2023}}. Another important observation regarding real-time systems is about the correctness of the system which \enquote{ depends not only on the logical result of the computation, but also on the time at which the results are produced \cite{springKernel}}.
+The main goal for real-time systems is to provide predictable and responsive behaviour, while  \enquote{maintaining reliability as a priority over sheer performance \cite{Hagens2023}}. Another important observation regarding real-time systems is about the correctness of the system which \enquote{ depends not only on the logical result of the computation, but also on the time at which the results are produced \cite{springKernel}}. Thus, real-time systems are classified by deadline, and real-time tasks can be separated into three main categories:
+\begin{enumerate}[]
+	\item \textbf{Soft:} the results generated after its deadline are still useful to the system, but lead to performance
+	degradation
+	
+	\item \textbf{Firm:} production of results after its end time has no use for the system, but does not inflict damage.
+	
+	\item \textbf{Hard:} when results are obtained after the specified time limit, the control unit faces a doomsday scenario.
+
+\end{enumerate}
 
 \section{Scheduling algorithm}
 
@@ -16,7 +25,7 @@ The main goal for real-time systems is to provide predictable and responsive beh
 \end{figure}
 
 In the FreeRTOS kernel architecture the task concept is defined as an independent execution thread. In other words,
-a task is a a program with a small footprint that operates in an infinite loop. As a human life, the life cycle of a task
+a task is a program with a small footprint that operates in an infinite loop. As a human life, the life cycle of a task
 includes instantiation, transitions of the state and inevitable termination. \cite{mastering}
 
 
