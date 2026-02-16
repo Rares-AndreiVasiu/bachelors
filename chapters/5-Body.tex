@@ -9,7 +9,7 @@ The main goal for real-time systems is to provide predictable and responsive beh
 	
 	\item \textbf{Firm:} production of results after its end time has no use for the system, but does not inflict damage. Weather forecast or stock exchange order decision are typical application areas. 
 	
-	\item \textbf{Hard:} when results are obtained after the specified time limit, the control unit faces a doomsday scenario. \cite{Hagens2023} Common applications are aerospace industry, defense and military, healthcare devices and many more.
+	\item \textbf{Hard:} when results are obtained after the specified time limit, the control unit faces a doomsday scenario. \cite{Hagens2023} Common applications are aerospace industry, defense and military, healthcare devices and many more. Examples from the aerospace industry include navigation, autopilot and stability control. For defense and military a bright illustration is the real-time computation of trajectory adjustments for missiles. Medical devices such as implantable pacemakers and defibrillators must deliver electrical pulses to the heart at precise intervals to maintain heartbeat's rhythm.
 
 \end{enumerate}
 
@@ -19,6 +19,15 @@ how time has to progress inside the system. } \cite{ecker2009hardware}
 \section{Real-time operating systems}
 Basic support for scheduling, handling resources, synchronization, communication, precise timing and input/output is offered by real-time operating systems (RTOSs). Moreover, real-time operating systems prioritize accuracy, certainty and incorporate functions that support time constraints. \cite{stankovic2004realrtos} 
 
+Different RTOSs are designed to meet specific needs in a plethora of domains. To mention a few of them, which ensure predictability, high performance and reliability:
+
+\begin{itemize}
+	\item \textbf{VxWorks:} used in aerospace, defense and industrial automation. Well-known for \enquote{scalability, security and safety features \cite{ibmRTOS2026}.}
+	
+	\item \textbf{QNX:} modular and POSIX-compilant RTOS is preferred in the medical and automotive sector (infotainment systems) for error tolerance and reliability. As of short notice, the \textbf{Blackbery 10} OS is based on QNX.
+	
+	\item \textbf{FreeRTOS:} An open-source RTOS, property of AWS is a aimed for high-performance embedded systems, IoT devices (smart CCTV camera) and even consumer electronics \enquote{emphasizing simplicity and efficiency \cite{ibmRTOS2026}}.
+\end{itemize}
 
 \section{Scheduling algorithm}
 
