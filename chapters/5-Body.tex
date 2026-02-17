@@ -1,4 +1,7 @@
-\chapter{Body}
+\chapter{State-of-the-art}
+
+
+\chapter{Theoretical Foundation}
 \thispagestyle{pagestyle}
 
 \section{Real-time systems}
@@ -9,12 +12,12 @@ The main goal for real-time systems is to provide predictable and responsive beh
 	
 	\item \textbf{Firm:} production of results after its end time has no use for the system, but does not inflict damage. Weather forecast or stock exchange order decision are typical application areas. 
 	
-	\item \textbf{Hard:} when results are obtained after the specified time limit, the control unit faces a doomsday scenario. \cite{Hagens2023} Common applications are aerospace industry, defense and military, healthcare devices and many more. Examples from the aerospace industry include navigation, autopilot and stability control. For defense and military a bright illustration is the real-time computation of trajectory adjustments for missiles. Medical devices such as implantable pacemakers and defibrillators must deliver electrical pulses to the heart at precise intervals to maintain heartbeat's rhythm.
+	\item \textbf{Hard:} when results are obtained after the specified time limit, the control unit faces a doomsday scenario. \cite{Hagens2023} Common applications are aerospace industry, defense and military, healthcare devices and many more. Examples from the aerospace industry include navigation, autopilot and stability control. For defense and military a bright illustration is the real-time computation of trajectory adjustments for missiles. Medical devices such as implantable pacemakers and defibrillators must deliver electrical pulses to the heart at precise intervals to maintain heartbeat's rhythm. \cite{ibmRTOS2026}
 
 \end{enumerate}
 
-A great analogy of how a real-time system functions in regards to its environment: \enquote{“Real-time” means that the IT system is no longer controlling its own time domain. Now it is the progress of time of the environment which dictates
-how time has to progress inside the system. } \cite{ecker2009hardware}
+A great analogy of how a real-time system functions in regards to its environment: \enquote{<<Real-time>> means that the IT system is no longer controlling its own time domain. Now it is the progress of time of the environment which dictates
+how time has to progress inside the system \cite{ecker2009hardware}.} 
 
 \section{Real-time operating systems}
 Basic support for scheduling, handling resources, synchronization, communication, precise timing and input/output is offered by real-time operating systems (RTOSs). Moreover, real-time operating systems prioritize accuracy, certainty and incorporate functions that support time constraints. \cite{stankovic2004realrtos} 
@@ -24,7 +27,7 @@ Different RTOSs are designed to meet specific needs in a plethora of domains. To
 \begin{itemize}
 	\item \textbf{VxWorks:} used in aerospace, defense and industrial automation. Well-known for \enquote{scalability, security and safety features \cite{ibmRTOS2026}.}
 	
-	\item \textbf{QNX:} modular and POSIX-compilant RTOS is preferred in the medical and automotive sector (infotainment systems) for error tolerance and reliability. As of short notice, the \textbf{Blackbery 10} OS is based on QNX.
+	\item \textbf{QNX:} modular and POSIX-compilant RTOS is preferred in the medical and automotive sector (infotainment systems) for error tolerance and reliability. As of short notice, the \textbf{Blackbery 10} OS is based on QNX. \cite{wikipediaQNX}
 	
 	\item \textbf{FreeRTOS:} An open-source RTOS, property of AWS is a aimed for high-performance embedded systems, IoT devices (smart CCTV camera) and even consumer electronics \enquote{emphasizing simplicity and efficiency \cite{ibmRTOS2026}}.
 \end{itemize}
@@ -83,3 +86,10 @@ In FreeRTOS, preemptive scheduling is a scheduling algorithm in which the kernel
 The initial project ran on version 10.4.4, but we have migrated to current latest version being 11.1.0. The impactful change
 in project structure is that the latest contains a new file \textbf{FreeRTOS-Kernel/portable/GCC/ARM\_CM0/portasm.c} which needs to be introduced in the CMake's sight as an additional library. This file handles MPU configuration, which is not
 supported for the Raspberry Pi Pico.
+
+
+\chapter{Proposed solution and Development Methodology}
+
+\chapter{Implementation}
+
+\chapter{Conclusions, Contributions and Future Work}
