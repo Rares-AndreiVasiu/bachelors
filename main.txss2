@@ -1,0 +1,112 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "main.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "chapters/5-Body.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 39,
+                "EditorGroup": 0,
+                "FileName": "main.tex",
+                "FirstLine": 10,
+                "FoldedLines": "",
+                "Line": 55
+            },
+            {
+                "Col": 53,
+                "EditorGroup": 0,
+                "FileName": "customs.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 7
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "main-blx.bib",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 7
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "components/Format.tex",
+                "FirstLine": 24,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 25,
+                "EditorGroup": 0,
+                "FileName": "components/Styles.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 6
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "chapters/2-AbstractRO.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 12,
+                "EditorGroup": 0,
+                "FileName": "chapters/3-AbstractEN.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 6
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "chapters/4-Introduction.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 2
+            },
+            {
+                "Col": 1,
+                "EditorGroup": 0,
+                "FileName": "chapters/5-Body.tex",
+                "FirstLine": 9,
+                "FoldedLines": "",
+                "Line": 13
+            },
+            {
+                "Col": 34,
+                "EditorGroup": 0,
+                "FileName": "chapters/6-Conclusions.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 4
+            },
+            {
+                "Col": 15,
+                "EditorGroup": 0,
+                "FileName": "../../../../.miktex/texmfs/install/tex/latex/biblatex/blx-bibtex.def",
+                "FirstLine": 507,
+                "FoldedLines": "",
+                "Line": 515
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "bibliography.bib",
+                "FirstLine": 18,
+                "FoldedLines": "",
+                "Line": 29
+            }
+        ],
+        "MasterFile": "main.tex",
+        "VerticalSplit": true
+    }
+}
