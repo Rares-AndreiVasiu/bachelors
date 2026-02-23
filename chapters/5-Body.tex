@@ -94,4 +94,52 @@ supported for the Raspberry Pi Pico.
 
 \chapter{Implementation}
 
+\begin{code}
+	\begin{lstlisting}[language=C]
+	
+BaseType_t xFenpTaskCreate(
+	TaskFunction_t pvTaskCode,
+	const char *const pcName,
+	configSTACK_DEPTH_TYPE usStackDepth,
+	void *pvParameters,
+	UBaseType_t uxPriority,
+	TaskHandle_t *pxCreatedTask,
+	TickType_t period
+	)
+{
+	if (MAX_FENP_TASKS <= index)
+	{
+		return errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY;
+	}
+		
+	BaseType_t status = xTaskCreate(pvTaskCode,
+		pcName,
+		usStackDepth,
+		pvParameters,
+		uxPriority,
+		pxCreatedTask
+	);
+		
+	if (pdFAIL == status)
+	{
+		return pdFAIL;
+	}
+		
+	vTaskSuspend(*pxCreatedTask);
+	
+	table[index].period = period;
+	
+	table[index].taskHandle = *pxCreatedTask;
+		
+	index ++;
+		
+	return pdPASS;
+}
+	\end{lstlisting}
+	\caption{FENP wrapper \cref{code:polym}}
+	\label{code:polym}
+
+\end{code}
+
+
 \chapter{Conclusions, Contributions and Future Work}
