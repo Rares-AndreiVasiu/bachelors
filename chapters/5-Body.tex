@@ -50,7 +50,7 @@ includes instantiation, transitions of the state and inevitable termination. Tas
 \cite{mastering} 
 
 \section{Task dispatchers}
-In real-time operating systems, the task dispatcher is responsible for handling tasks and ensuring the right task is going to transition to the \textit{Running} state. In order to guarantee that there are no interrupting events which could hinder the dispatching procedure, the dispatcher waits for a tick from the kernel. So as to enter the critical state. Now once a tick has happened, the tick counter is incremented by one. The \enquote{lowest release time \cite{Hagens2023}} task from dispatcher's data structure is being analyzed. Moreover, the task is added to the ready queue if and only if the first task is prepared to transition the \textit{Running} state. Simultaneously the task cannot be executing and the first entry in the data structure. Consequently, the task will be removed from dispatcher's data structure. Embedded Systems designers decide the implementation of task dispatchers\cite{Hagens2023}
+In real-time operating systems, the task dispatcher is responsible for handling tasks and ensuring the right task is going to transition to the \textit{Running} state. In order to guarantee that there are no interrupting events which could hinder the dispatching procedure, the dispatcher waits for a tick from the kernel. So as to enter the critical state. Now once a tick has happened, the tick counter is incremented by one. The \enquote{lowest release time \cite{Hagens2023}} task from dispatcher's data structure is being analyzed. Moreover, the task is added to the ready queue if and only if the first task is prepared to transition the \textit{Running} state. Simultaneously the task cannot be executing and the first entry in the data structure. Consequently, the task will be removed from dispatcher's data structure. Embedded Systems designers decide the implementation of task dispatchers, as they differ from one RTOS to another \cite{Hagens2023}. Let us inspect the implementation of task dispatchers in a popular RTOS, Zephyr OS. In this regard, the timeout queue serves as the task dispatcher. All timing events are handled in a \enquote{single, global queue \cite{zephyrDOC}} implemented as double-linked list. Each event stores a delta count in ticks from the previous event, a callback function pointer and a timeout tracking structure embedded with subsystem data structures. The expiration time determines where a new task is going to be inserted in the timeout queue. In addition, the insertion of a new task has a subsequent step and that is to update the relative tick count  \cite{zephyrDOC}
 
 \section{Cooperative Scheduling}
 
@@ -138,9 +138,26 @@ BaseType_t xFenpTaskCreate(
 	return pdPASS;
 }
 	\end{lstlisting}
-	\caption{FENP wrapper \cref{code:polym}}
-	\label{code:polym}
+	\caption{FENP wrapper \cref{code:task}}
+	\label{code:task}
 
+\end{code}
+
+\begin{code}
+	\begin{lstlisting}[language=C]
+	 TaskHandle_t gResolutionPin0Task = NULL;
+	 
+	 xFenpTaskCreate(
+	 vHandlerTaskResolutionPin0,
+	 "Demo program",
+	 1024,
+	 NULL,
+	 0,
+	 &gResolutionPin0Task,
+	 10);
+	\end{lstlisting}
+	\caption{FENP task creation \cref{code:example_instantiation}}
+	\label{code:example_instantiation}
 \end{code}
 
 
